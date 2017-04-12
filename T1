@@ -1,0 +1,27 @@
+/*Duan Pedroso da Silva - PiscaLed*/
+
+module Teste (
+    input CLOCK_50,
+    output [1:0]LEDG
+
+    );
+   
+  reg [32:0]cont = 0; 
+  reg state = 0;
+ 
+    assign LEDG[0] = state;
+     assign LEDG[1] = ~state;
+
+    always @(posedge CLOCK_50) begin
+
+        if (cont == 50000000) begin
+                state = ~state;
+                cont =0;
+        end else begin
+                    cont <= cont +1;
+            end
+    end
+
+
+
+endmodule
