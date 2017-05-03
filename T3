@@ -18,9 +18,9 @@ int sign (struct fPoint pt, struct fPoint p1, struct fPoint p2)
 {
     int b1, b2, b3, b4 = 0;
 
-    b1 = sign(pt, v1, v2);// < 0.0f;
-    b2 = sign(pt, v2, v3);//< 0.0f;  
-    b3 = sign(pt, v3, v1);//< 0.0f;
+    b1 = sign(pt, v1, v2);
+    b2 = sign(pt, v2, v3);  
+    b3 = sign(pt, v3, v1);
 
  
      if(b1 <= 0){
@@ -71,7 +71,7 @@ int main () {
             while(fscanf(ArquivoCoordenadas,"%d %d %d %d %d %d %d %d",&p1.x,&p1.y,&p2.x,&p2.y,&p3.x,&p3.y,&pt.y,&pt.x) != EOF){
             	b4 = PointInTriangle(pt,p1,p2,p3);
             	fprintf(ArquivoGerado,"\n%d %d %d",b4,pt.y,pt.x );
-                //fprintf(ArquivoGerado, "%d %d %d %d %d %d %d %d\n",p1.x,p1.y,p2.x,p2.y,p3.x,p3.y,pt.y,pt.x);
+               
             
             }
 
