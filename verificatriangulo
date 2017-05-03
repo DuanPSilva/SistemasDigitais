@@ -20,7 +20,7 @@ assign b = acc;
 assign o = acc;
 
 always @(posedge clock ) begin
-  acc <= acc + s;
+  acc <= s;
 end
    
   
