@@ -13,8 +13,7 @@ module sinal (
 
     );
 
-    // FIOS DECLARADOS
-    
+    // Declaração dos Fios
     wire signed [11:0] Subtracao1;
     wire signed [11:0] Subtracao2;
     wire signed [11:0] Subtracao3;
@@ -23,13 +22,10 @@ module sinal (
     wire signed [22:0] Multiplicacao1;
     wire signed [22:0] Multiplicacao2;
 
-    
-    // COMPARADOR
-
-    wire signed [22:0] Subtracao5; 
+    wire signed [22:0] Subtracao5; // comparador
 
 
-    // LEGAÇÃO ENTRE OS FIOS
+    // Ligação dos Fios
 
     assign Subtracao1 = PontoTX - Ponto2Y;
     assign Subtracao2 = Ponto1Y - Ponto2Y;
@@ -41,9 +37,9 @@ module sinal (
 
     assign Subtracao5 = Multiplicacao1 - Multiplicacao2;
 
-     // VERIFICA SE O RESULTADO DA MULTIPLICAÇÃO É IGUAL OU MAIOR A 0. RETORNA 1 ou 0.
-    assign sinal = (Subtracao5 >= 0) ? 1 : 0;
+    //Verifica se o resultado da ultima multiplicação é maior ou igual a zero e retornar o sinal 1 ou 0.
 
+    assign sinal = (Subtracao5 >= 0) ? 1 : 0; 
 endmodule
 
 
