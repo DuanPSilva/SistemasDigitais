@@ -1,0 +1,38 @@
+module Adder(input clk,
+	input [63:0] Entrada1,
+	input [63:0] Entrada2,
+	output[63:0] io_c
+	);
+reg [63:0] saida;
+assign io_c = saida;
+always @(posedge clk) begin
+	saida <= Entrada1 + Entrada2;
+end
+endmodule
+module test;
+	reg clk;
+	reg[63:0] Entrada1, Entrada2;
+	wire[63:0] io_c;
+	always #2 clk = ~clk;
+	Adder A(clk, Entrada1, Entrada2, io_c);
+	initial begin
+		$dumpvars(0, A);
+// Inicialmente, o clock comeca com 0
+#0 clk <= 0;
+Entrada1 <= 3;
+Entrada2 <= 7;
+// 20 segundos depois, os valores mudam
+#20
+Entrada1 <= 13;
+Entrada2 <= 50;
+// mais **40** segundos depois, os valores mudam denovo
+#40
+Entrada1 <= 4;
+Entrada2 <= 7;
+#50;
+Entrada1 <= 49;
+Entrada2 <= 74;
+#500;
+$finish;
+end
+endmodule
